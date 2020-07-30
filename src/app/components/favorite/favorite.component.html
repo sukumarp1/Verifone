@@ -1,12 +1,12 @@
 <div>
-    List 1
+    <p class="list-title">List 1</p>
      <div class="container" *ngFor="let obj of favoriteImages.favor1">
         <a href="{{obj.link}}" target="_self" download>
             <img src="{{obj.thumbnail}}" class="image" style="width:85%;height:85%">
         </a>
     </div>
     <br>
-    List2
+    <p class="list-title">List2</p>
     <div class="container" *ngFor="let obj2 of favoriteImages.favor2">
         <a href="{{obj2.link}}" target="_self" download>
             <img src="{{obj2.thumbnail}}" class="image" style="width:85%;height:85%">
