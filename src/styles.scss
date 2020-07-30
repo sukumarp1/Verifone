@@ -1,0 +1,16 @@
+.body{
+    font-family:"Open Sans", "Helvetica Neue", sans-serif
+}
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    width:84% !important;
+    height:84% !important;
+    .image-size{
+   background-color: #f1f1f1;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+  
+    }
+}
