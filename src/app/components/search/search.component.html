@@ -8,9 +8,7 @@
       </ng-template>
       <div>
         <a *ngIf="!isDisable; else disabledLink" [routerLink]="['/favorite']">Click here Go To Favorite</a>
-
       </div>
-
 </div>
 
 
@@ -34,8 +32,6 @@
         </div>
     
     <p-footer>
-        <!-- <button type="button" pButton (click)="createList()" label="createList"></button> -->
         <button type="button" pButton (click)="addAnotherImage()" label="AddToList"></button>
-        <button type="button" pButton (click)="goToFavorite()" label="GoToFavorities"></button>
     </p-footer>
 </p-dialog>
