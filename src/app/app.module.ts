@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AutoCompleteModule} from 'primeng/autocomplete';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { SearchComponent } from './components/search/search.component';
-import {HttpClientModule} from '@angular/common/http'
-import {ButtonModule} from 'primeng/button';
-import {DialogModule} from 'primeng/dialog';
+import { HttpClientModule } from '@angular/common/http'
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 import { FavoriteComponent } from './components/favorite/favorite.component';
-import {CoreModule} from '../core/core.module';
-import {RadioButtonModule} from 'primeng/radiobutton';
+import { CoreModule } from '../core/core.module';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,15 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     AutoCompleteModule,
     ButtonModule,
     DialogModule,
     CoreModule,
-    RadioButtonModule
+    RadioButtonModule,
+    TabMenuModule,
+    InputTextModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   display: boolean = false;
   isDisable: boolean = true;
   isListCreate: boolean = false;
-  listname: string;
+  listName: string;
   listValues: any = [];
   selectedImage: any;
   list1: any = [];
@@ -27,6 +27,10 @@ export class SearchComponent implements OnInit {
   favor1: any;
   favor2: any;
   val1: string;
+  isCreateList: boolean = false;
+  favoriteList: any = [];
+  arr = [];
+
   constructor(private http: HttpClient, private helper: HelperService, private router: Router) { }
 
   ngOnInit() {
@@ -34,7 +38,7 @@ export class SearchComponent implements OnInit {
   }
 
   /*filter data based on query*/
-  
+
   filterBrands(event) {
     this.filteredBrands = [];
     for (let i = 0; i < this.data.length; i++) {
@@ -59,16 +63,10 @@ export class SearchComponent implements OnInit {
   /*Add Image to Favorite on click of add favorities Hide popup and go back to search page*/
   addAnotherImage() {
     this.display = false;
-    if (this.val1 == 'List1') {
-      this.list1.push(this.selectedImage);
-      this.listValues.favor1 = this.list1
-      this.helper.setFavoriteImages(this.listValues);
-    }
-    if (this.val1 == 'List2') {
-      this.list2.push(this.selectedImage);
-      this.listValues.favor2 = this.list2
-      this.helper.setFavoriteImages(this.listValues);
-    }
+
+    this.selectedImage.listName = this.val1;
+    this.arr.push(this.selectedImage)
+    this.helper.setFavoriteImages(this.arr);
   }
 
   /*Hide popup and go to Favorite page*/
@@ -81,5 +79,14 @@ export class SearchComponent implements OnInit {
   /*select the List*/
   onRadioBtnClick(list) {
     this.val1 = list;
+  }
+  /*toggle createList */
+  createList() {
+    this.isCreateList = true;
+  }
+  /* update the list*/
+  updateList() {
+    this.listValues.push(this.listName);
+    this.isCreateList = false;
   }
 }

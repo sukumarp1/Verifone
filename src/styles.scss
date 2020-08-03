@@ -1,5 +1,8 @@
 .body{
-    font-family:"Open Sans", "Helvetica Neue", sans-serif
+    font-family:"Open Sans", "Helvetica Neue", sans-serif;
+    .ui-tabmenu .ui-tabmenu-nav{
+        border-bottom: none !important;
+    }
 }
 .flex-container{
     display: flex;
@@ -12,5 +15,8 @@
   text-align: center;
   font-size: 30px;
   
+    }
+    ul.ui-tabmenu-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all{
+       
     }
 }

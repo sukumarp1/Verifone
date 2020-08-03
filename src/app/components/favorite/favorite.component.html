@@ -1,16 +1,7 @@
-<div>
-    <div>
-        <a *ngIf="!isDisable; else disabledLink" [routerLink]="['']">Click here Go Back Search</a>
-      </div>
-    <p class="list-title">List 1</p>
-    <div class="container" *ngFor="let obj of favoriteImages.favor1">
-        <img src="{{obj.thumbnail}}" class="image" style="width:85%;height:85%" (click)="downloadImage(obj)">
+<div class="container" *ngFor="let obj of favoriteListName">
+    {{obj | uppercase}}
+    <div *ngFor="let obj1 of favoriteListValues[obj]">
+        <img src="{{obj1.thumbnail}}" class="image" style="width:85%;height:85%" (click)="downloadImage(obj1)">
 
     </div>
-    <br>
-    <p class="list-title">List2</p>
-    <div class="container" *ngFor="let obj2 of favoriteImages.favor2">
-        <img src="{{obj2.thumbnail}}" class="image" style="width:85%;height:85%" (click)="downloadImage(obj2)">
-    </div>
-
 </div>

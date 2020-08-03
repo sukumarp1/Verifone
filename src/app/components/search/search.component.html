@@ -26,12 +26,18 @@
 </div>
 <p-dialog header="Title" [(visible)]="display" [style]="{width: '35vw'}" [baseZIndex]="10000">
     
-        <div style="width:250px;margin-bottom:10px">
-            <div><p-radioButton name="group1" value="val1" label="List 1"  (onClick)="onRadioBtnClick('List1')"></p-radioButton></div>
-            <div><p-radioButton name="group1" value="val1" label="List 2" (onClick)="onRadioBtnClick('List2')"></p-radioButton></div>
+        <div *ngIf="!isCreateList" style="width:250px;margin-bottom:10px">
+            <div *ngFor="let obj of listValues let i = index"><p-radioButton name="group1" value="{{listValues[i]}}" label="{{listValues[i]}}"  (onClick)="onRadioBtnClick(listValues[i])"></p-radioButton></div>
+        </div>
+        <div class="flex-container-input" *ngIf="isCreateList" style="width:250px;margin-bottom:10px">
+            <input  type="text" pInputText [(ngModel)]="listName"> {{listName}}
+            
+                <button type="button" (click)="updateList()" pButton label="createList"></button>
+
         </div>
     
-    <p-footer>
+    <p-footer *ngIf="!isCreateList">
         <button type="button" pButton (click)="addAnotherImage()" label="AddToList"></button>
+        <button type="button" pButton (click)="createList()" label="create"></button>
     </p-footer>
 </p-dialog>

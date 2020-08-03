@@ -11,11 +11,19 @@ export class FavoriteComponent implements OnInit {
   favoriteImages: any = [];
   result: any = [];
   data: any = {}
+  favoriteListName: any = []
+  favoriteListValues: any = [];
   constructor(private helper: HelperService, private router: Router) { }
 
   ngOnInit() {
     this.helper.favoriteImages$.subscribe(result => {
       this.favoriteImages = result;
+      let group = this.favoriteImages.reduce((r, a) => {
+        r[a.listName] = [...r[a.listName] || [], a];
+        return r;
+      }, {});
+      this.favoriteListValues = group;
+      this.favoriteListName = Object.keys(group);
       if (result != undefined) {
         this.favoriteImages = result;
       }
@@ -24,6 +32,8 @@ export class FavoriteComponent implements OnInit {
       }
     });
   }
+  
+  /* download the image*/
   downloadImage(obj) {
     let splitbyte = obj.thumbnail.split(',');
     let byteCharacters = atob(splitbyte[1]);
